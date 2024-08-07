@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend oreste-frontend-http
+frontend pretty-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend oreste-backend
+        default_backend pretty-backend
 
-frontend oreste-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.abizeraoreste.tech.pem
+frontend pretty-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.prettydiane.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend oreste-backend
+	default_backend pretty-backend
 
-backend oreste-backend
+backend pretty-backend
         balance roundrobin
-        server 6238-web-01 54.196.216.8:80 check
-        server 6238-web-02 98.80.15.59:80 check
+        server 6131-web-01 44.223.65.215:80 check
+        server 6131-web-02 54.85.171.248:80 check
